@@ -1,0 +1,27 @@
+{
+  "name": "casein-v2",
+  "version": "0.1",
+  "authors": [
+    "Samir <92samirss@gmail.com>"
+  ],
+  "description": "Dependencias JS Bower",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ],
+  "homepage": "www.casein.com",
+  "private": true,
+  "dependencies": {
+    "angular-cookies": "~1.4.7",
+    "angular": "~1.4.7",
+    "angular-translate": "~2.8.1",
+    "bootstrap": "~3.3.5"
+  }
+}
