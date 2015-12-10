@@ -17,16 +17,22 @@ class CompanyConsortium extends \yii\db\ActiveRecord
     public $country_id;
     public $state_id;
     public $city_id;
+    public $time_zone_id;
     public $name;
+    public $dni_type_id;
     public $dni;
     public $currency_id;
     public $address;
-    public $dni_type_id;
     public $phone;
     public $website;
     public $company_ground_id;
     public $postal_code;
     public $bank_id;
+    public $email;
+    public $account_number;
+    public $contact_name;
+    public $contact_phone;
+    public $contact_email;
     /**
      * @inheritdoc
      */
@@ -40,10 +46,17 @@ class CompanyConsortium extends \yii\db\ActiveRecord
      */
     public function rules()
     {
+        // return [
+        //     [['id'], 'required'],
+        //     [['id'], 'integer'],
+        //     [['data_company_consortium'], 'string']
+        // ];
+
         return [
-            [['id'], 'required'],
-            [['id'], 'integer'],
-            [['data_company_consortium'], 'string']
+            [['name', 'dni', 'dni_type_id', 'postal_code', 'country_id', 'state_id'], 'required'],
+            [['country_id', 'state_id', 'city_id', 'time_zone_id', 'dni_type_id', 'company_ground_id'], 'integer'],
+            // [['name'], 'string', 'max' => 5],
+            [['address'], 'string', 'max' => 10]
         ];
     }
 

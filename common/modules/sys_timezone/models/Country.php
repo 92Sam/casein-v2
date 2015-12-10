@@ -24,6 +24,9 @@ use yii\helpers\ArrayHelper;
  * @property string $head_state
  * @property integer $capital
  * @property string $iso_code
+ * @property string $currency_data
+ * @property integer $numeric_code
+ * @property integer $phone_code
  *
  * @property SysState[] $sysStates
  */
@@ -43,8 +46,10 @@ class Country extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['name', 'local_name', 'code'], 'required'],
             [['surface_area', 'life_expectancy', 'gnp', 'gnpold'], 'number'],
-            [['indep_year', 'population', 'capital'], 'integer'],
+            [['indep_year', 'population', 'capital', 'numeric_code', 'phone_code'], 'integer'],
+            [['currency_data'], 'string'],
             [['code'], 'string', 'max' => 3],
             [['name'], 'string', 'max' => 100],
             [['continent', 'region'], 'string', 'max' => 30],
@@ -75,6 +80,9 @@ class Country extends \yii\db\ActiveRecord
             'head_state' => 'Head State',
             'capital' => 'Capital',
             'iso_code' => 'Iso Code',
+            'currency_data' => 'Currency Data',
+            'numeric_code' => 'Numeric Code',
+            'phone_code' => 'Phone Code',
         ];
     }
 
@@ -86,10 +94,10 @@ class Country extends \yii\db\ActiveRecord
         return $this->hasMany(SysState::className(), ['country_id' => 'id']);
     }
 
-
     public function getCountryList()
     { 
-        $models = self::find()->asArray()->all();
+        $models = self::find()->select('id, name')->orderBy(['name'=>SORT_ASC])->asArray()->all();
+        // var_dump($models); exit();
         return ArrayHelper::map($models, 'id', 'name');
     }
 }

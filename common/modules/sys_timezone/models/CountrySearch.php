@@ -18,8 +18,8 @@ class CountrySearch extends Country
     public function rules()
     {
         return [
-            [['id', 'indep_year', 'population', 'capital'], 'integer'],
-            [['code', 'name', 'continent', 'region', 'local_name', 'goverment_form', 'head_state', 'iso_code'], 'safe'],
+            [['id', 'indep_year', 'population', 'capital', 'numeric_code', 'phone_code'], 'integer'],
+            [['code', 'name', 'continent', 'region', 'local_name', 'goverment_form', 'head_state', 'iso_code', 'currency_data'], 'safe'],
             [['surface_area', 'life_expectancy', 'gnp', 'gnpold'], 'number'],
         ];
     }
@@ -65,6 +65,8 @@ class CountrySearch extends Country
             'gnp' => $this->gnp,
             'gnpold' => $this->gnpold,
             'capital' => $this->capital,
+            'numeric_code' => $this->numeric_code,
+            'phone_code' => $this->phone_code,
         ]);
 
         $query->andFilterWhere(['like', 'code', $this->code])
@@ -74,7 +76,8 @@ class CountrySearch extends Country
             ->andFilterWhere(['like', 'local_name', $this->local_name])
             ->andFilterWhere(['like', 'goverment_form', $this->goverment_form])
             ->andFilterWhere(['like', 'head_state', $this->head_state])
-            ->andFilterWhere(['like', 'iso_code', $this->iso_code]);
+            ->andFilterWhere(['like', 'iso_code', $this->iso_code])
+            ->andFilterWhere(['like', 'currency_data', $this->currency_data]);
 
         return $dataProvider;
     }

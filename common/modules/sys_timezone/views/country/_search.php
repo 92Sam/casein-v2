@@ -47,6 +47,12 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'iso_code') ?>
 
+    <?php // echo $form->field($model, 'currency_data') ?>
+
+    <?php // echo $form->field($model, 'numeric_code') ?>
+
+    <?php // echo $form->field($model, 'phone_code') ?>
+
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>

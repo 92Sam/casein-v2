@@ -8,6 +8,7 @@ use common\modules\sys_timezone\models\State;
 use common\modules\sys_timezone\models\City;
 use yii\helpers\Json;
 use yii\helpers\Url;
+use yii\helpers\ArrayHelper;
 
 class StateController extends \yii\web\Controller
 {
@@ -29,6 +30,32 @@ class StateController extends \yii\web\Controller
         return $this->renderAjax('listbycountry', [
             'model' => $model,
         ]);
+    }
+
+    public function actionStateslistbycountryid($countryId)
+    {   
+        if($countryId != NULL){
+            $sql = "SELECT id, name FROM sys_state WHERE country_id = $countryId ORDER BY name ASC";
+            $model = State::findBySql($sql);
+            $countStates = $model->count();
+            
+            if($countStates > 0){
+                $model = $model->all();
+                $data = [];
+
+                foreach ($model as $key => $value) {
+                    $data[$key] = [
+                        'id' => $value['id'],
+                        'name' => $value['name']
+                    ];
+                    //var_dump($value['id']);
+                }
+                
+            }else{$model = NULL;}
+        }else{
+            $model = NULL;
+        }
+        return json_encode($data);
     }
 
 }

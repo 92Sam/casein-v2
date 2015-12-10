@@ -57,7 +57,7 @@ CommonAsset::register($this);
             <span class="hidden-sm hidden-xs"><span >Acciones</span>&nbsp;</span><i class="fa fa-angle-down"></i>
           </button>
           <ul class="dropdown-menu" role="menu">
-          <li>
+            <li>
               <a href="/">
               <i class="icon-home"></i> 
                 <span >Panel principal</span>
@@ -75,6 +75,14 @@ CommonAsset::register($this);
                 <span >Configuración</span>
               </a>
             </li>
+
+            <li>
+              <a href="<?= Url::toRoute(['sys_timezone/country']); ?>"
+                <i class="icon-wrench"></i> 
+                <span >Paises</span>
+              </a>
+            </li>
+
           </ul>
         </div>
       </div>

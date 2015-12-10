@@ -9,6 +9,8 @@ use yii\widgets\DetailView;
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Countries', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+var_dump($model);
 ?>
 <div class="country-view">
 
@@ -44,6 +46,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'head_state',
             'capital',
             'iso_code',
+            'currency_data',
+            'numeric_code',
+            'phone_code',
         ],
     ]) ?>
 
