@@ -56,13 +56,13 @@ class Currency extends \yii\db\ActiveRecord
     public function getCurrencyList()
     { 
         $models = self::find()->asArray()->all();
+        // return ArrayHelper::map($listCurrency, 'id', 'value');
         $listCurrency = [];
         foreach ($models as $key => $value) {
             # code...
             $listCurrency[$key]['id'] = $value['id'];
             $listCurrency[$key]['value'] = $value['alphabetic_code'] . ' - ' . $value['name'] . ' (' . $value['symbol'] . ')';
         }
-        //var_dump($listCurrency); exit();
-        return ArrayHelper::map($listCurrency, 'id', 'value');
+        return $listCurrency;
     }
 }

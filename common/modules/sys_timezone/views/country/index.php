@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'iso_code',
             // 'currency_data',
             // 'numeric_code',
-            // 'phone_code',
+            'phone_code',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

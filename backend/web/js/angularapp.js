@@ -4,7 +4,7 @@ var app = angular.module('myapp', ['UserValidation']);
 
 companyMod.controller('newFields', function($scope) {
 
-  var maxField = 3;  
+  var maxField = 3;
   var maxFieldContact = 2;  
   $scope.array = [{id: 1}];
   $scope.contact = [{id: 1}];
@@ -133,10 +133,9 @@ companyMod.controller('countryController', function($scope, $http) {
 //     'onchange'=>'$.post("'.Yii::$app->urlManager->createUrl(["/sys_timezone/state/stateslist"]).'&idCountry="+$(this).val(), function(data){$("select#companyconsortium-state_id").html(data);});']) ?>
     
     $scope.countryAction = function(){
-            if($scope.country_id != ''){
+        if($scope.country_id != ''){
                 $scope.isEven = true;
                 var item = $scope.country_id;
-
                 $http({
                 //   url       : 'http://ribelaerp.backend/sys_account_manager/account/getjsonaccess?idCountry=' + item,
                 //   $.post("'.Yii::$app->urlManager->createUrl(["/sys_timezone/state/stateslist"]).'&idCountry="+$(this).val()
@@ -193,23 +192,23 @@ companyMod.controller('countryController', function($scope, $http) {
 });
 
 
-companyMod.controller('submitCompany', function($scope, $http) {
+companyMod.controller('saveCompany', function($scope, $http) {
 
 
-  var item = $scope.country_id;
+  // var item = $scope.country_id;
 
-  $scope.data = {
-                    company_profile:{
-                        name: $scope.name,
-                        type_dni_id: $scope.dni_type_id,
-                        dni: $scope.dni,
-                        //currency_id:[$scope.currency_id],
-                        company_ground_id: $scope.company_ground_id
-                    }
-                };
+  // $scope.data = {
+  //                   company_profile:{
+  //                       name: $scope.name,
+  //                       type_dni_id: $scope.dni_type_id,
+  //                       dni: $scope.dni,
+  //                       //currency_id:[$scope.currency_id],
+  //                       company_ground_id: $scope.company_ground_id
+  //                   }
+  //               };
 
 
-  $scope.submit = function() {
+  $scope.submitCompany = function($scope) {
         // $http({
         //       url       : 'index.php?r=sys_timezone/city/citylistbystateid&stateId=' + item,
         //       method    : 'GET',
@@ -219,8 +218,8 @@ companyMod.controller('submitCompany', function($scope, $http) {
         //         console.log(data);
         //             $scope.country_list= data;
         // });
+        console.log(country_id);
         console.log("guardo formulario");
-        console.log(item);
   };
 
 });
@@ -236,7 +235,7 @@ companyMod.controller('saveFormEmployee', function($scope) {
 // Modulo de prueba.
 
 // myappCtrl = function($scope) {
-app.controller('myappCtrl', function($scope) {
+/*app.controller('myappCtrl', function($scope) {
     $scope.formAllGood = function () {
         return ($scope.usernameGood && $scope.passwordGood && $scope.passwordCGood)
     }
@@ -289,4 +288,4 @@ angular.module('UserValidation', []).directive('validUsername', function () {
             })
         }
     }
-})
+})*/

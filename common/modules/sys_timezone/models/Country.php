@@ -97,7 +97,14 @@ class Country extends \yii\db\ActiveRecord
     public function getCountryList()
     { 
         $models = self::find()->select('id, name')->orderBy(['name'=>SORT_ASC])->asArray()->all();
-        // var_dump($models); exit();
         return ArrayHelper::map($models, 'id', 'name');
+        
+        // $listCountry = [];
+        // foreach ($models as $key => $value) {
+        //     # code...
+        //     $listCountry[$key]['id'] = $value['id'];
+        //     $listCountry[$key]['name'] = $value['name'];
+        // }
+        // return $listCountry;
     }
 }

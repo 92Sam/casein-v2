@@ -46,6 +46,14 @@ class CompanyGround extends \yii\db\ActiveRecord
     public function getCompanyGroundList()
     { 
         $models = self::find()->asArray()->all();
-        return ArrayHelper::map($models, 'id', 'name');
+        // return ArrayHelper::map($models, 'id', 'name');
+
+        $listCompanyGround = [];
+        foreach ($models as $key => $value) {
+            # code...
+            $listCompanyGround[$key]['id'] = $value['id'];
+            $listCompanyGround[$key]['name'] = $value['name'];
+        }
+        return $listCompanyGround;
     }
 }

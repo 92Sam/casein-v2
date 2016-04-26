@@ -31311,8 +31311,10 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 			months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 			monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 			today: "Today",
-			clear: "Clear"
-		}
+			clear: "Clear",
+      format:"yyyy-mm-dd"
+		},
+    //!function(a){a.fn.datepicker.dates.es={days:["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"],daysShort:["Dom","Lun","Mar","Mié","Jue","Vie","Sáb","Dom"],daysMin:["Do","Lu","Ma","Mi","Ju","Vi","Sa","Do"],months:["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],monthsShort:["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],today:"Hoy",clear:"Borrar",weekStart:1,format:"dd/mm/yyyy"}}(jQuery);
 	};
 
 	var DPGlobal = {
@@ -36192,7 +36194,9 @@ $RIBELA.AJAX=(function()
 /**
  * Modulo encargado de interaccion en interfaz
  */
-$RIBELA.UI = (function() {
+var $CASEIN = {};
+
+$CASEIN.UI = (function() {
 
     function init()
     {
@@ -36208,8 +36212,11 @@ $RIBELA.UI = (function() {
         _changeSetUserRol();
         _validationCrmCustomer();
         _products();
+         console.log("dasdakjdbkasbdkbaskdbksa");
     }
     
+   
+
    (function(a) {
         a.fn.validCampoFranz = function(b) {
             a(this).on({keypress: function(a) {
@@ -36370,7 +36377,15 @@ $RIBELA.UI = (function() {
 
             }
         });
-    
+
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            "processing": true,
+            "serverSide": true,
+            //"ajax": "server_side/scripts/server_processing.php"
+            "ajax": "index.php?r=hr_mod/person/personajax"
+        } );
+    } );
     
     function _validationCrmCustomer()
     {
@@ -36637,3 +36652,4 @@ $RIBELA.UI = (function() {
         }})
     }
 })(jQuery);
+

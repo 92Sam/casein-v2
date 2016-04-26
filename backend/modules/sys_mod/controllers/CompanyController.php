@@ -35,8 +35,8 @@ class CompanyController extends \yii\web\Controller
             {
               $post = Yii::$app->request->post();  
               // $transaction = Yii::$app->db->beginTransaction();
-              //var_dump($post); exit();
-              var_dump($post['CompanyConsortium']['name']);
+              var_dump($post); exit();
+              // var_dump($post['CompanyConsortium']['name']);
 
             }else{
                 echo "error";

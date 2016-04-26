@@ -213,12 +213,19 @@ CommonAsset::register($this);
             </a>
             <ul class="dropdown-menu pull-left">
               <li>
-                <a href="/crm_product/default">
+                <a href="<?= Url::toRoute(['hr_mod/person/index']); ?>">
                   <i class="icon-briefcase"></i>
-                  <span >Productos</span>
+                  <span >Personas</span>
                 </a>
               </li>
-            </ul>
+              
+              <li>
+                <a href="<?= Url::toRoute(['hr_mod/person/amcharts']); ?>">
+                  <i class="icon-briefcase"></i>
+                  <span >Amshart</span>
+                </a>
+              </li>
+             </ul>
           </li>
             <li class="menu-dropdown classic-menu-dropdown bg-yellow-gold">
             <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;">
@@ -226,9 +233,9 @@ CommonAsset::register($this);
             </a>
             <ul class="dropdown-menu pull-left">
               <li>
-                <a href="/crm_product/default">
-                  <i class="icon-briefcase"></i>
-                  <span >Productos</span>
+                <a href="<?= Url::toRoute(['acc_mod/bank/index']); ?>">
+                  <i class="fa fa-bank"></i>
+                  <span >Banca</span>
                 </a>
               </li>
               <li>
@@ -370,13 +377,17 @@ CommonAsset::register($this);
     <!-- JAVASCRIPTS -->
     <script>
     jQuery(document).ready(function() {    
-        Metronic.init(); // init metronic core componets
+        //Metronic.init(); // init metronic core componets
        // Layout.init(); // init layout
        // FormDropzone.init();
        // ComponentsFormTools2.init();
        // ComponentsDropdowns.init();
        // ComponentsPickers.init();
-        //$CASEIN.UI.init();//js de casein
+        $CASEIN.UI.init();//js de casein
+        /********* ChartsAmcharts ******/
+        Layout.init(); // init current layout
+        Demo.init(); // init demo features
+        ChartsAmcharts.init();
     });
     </script>
     <!-- END JAVASCRIPTS -->
